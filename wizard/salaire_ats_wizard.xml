@@ -16,6 +16,7 @@
                     <field name="date_start"/>
                     <field name="months_nbr"/>
                     <field name="payslip_ids"/>
+                    <field name="lines_ids"/>
 
                 </group>
 
