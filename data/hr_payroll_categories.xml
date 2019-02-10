@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+          <record id="hr_category_no_irg" model="hr.salary.rule.category">
+            <field name="name">NO IRG RULES</field>
+            <field name="code">NIRG</field>
+        </record>
+    </data>
+</odoo>

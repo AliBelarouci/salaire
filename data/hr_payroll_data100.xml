@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="hr_rule_basic" model="hr.salary.rule">
+            <field name="name">Basic Salary</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">BASIC</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage</field>
+        </record>
+           <record id="hr_rule_iep" model="hr.salary.rule">
+            <field name="name">IEP</field>
+            <field name="sequence" eval="2"/>
+            <field name="code">IEP</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = BASIC*0.1</field>
+        </record>
+             <record id="hr_rule_zone" model="hr.salary.rule">
+            <field name="name">Zone</field>
+            <field name="sequence" eval="3"/>
+            <field name="code">ZONE</field>
+            <field name="category_id" ref="hr_category_no_irg"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">fix</field>
+            <field name="amount_fix">1000</field>
+        </record>
+    </data>
+</odoo>

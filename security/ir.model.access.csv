@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_contract,hr.contract,model_hr_contract,salaire_manager,1,0,0,0
+access_hr_class,hr.class,model_hr_class,salaire_manager,1,1,1,1
+access_hr_categ,hr.categ,model_hr_categ,salaire_manager,1,1,1,1

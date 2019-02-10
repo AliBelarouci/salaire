@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record model="ir.ui.view" id="ats_detail_report_wizard_form">
+        <field name="name">salaire.ats.report.wizard</field>
+        <field name="model">salaire.ats.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Fees Details">
+             <header>
+                <button string="Compute ATS" name="compute_ats" type="object"  class="oe_highlight"/>
+                <button string="Print Page 1" name="print_page1"  type="object"  />
+                <button string="Print Page 2" name="print_page2"  type="object"  />
+
+            </header>
+                <group>
+                    <field name="employee_id"/>
+                    <field name="date_start"/>
+                    <field name="months_nbr"/>
+                    <field name="payslip_ids"/>
+
+                </group>
+
+            </form>
+        </field>
+    </record>
+<record model="ir.actions.act_window" id="salaire_ats_rapport_wizard_act">
+        <field name="name">ATS Details Report</field>
+        <field name="res_model">salaire.ats.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ats_detail_report_wizard_form"/>
+        <field name="context">{}</field>
+        <!--<field name="target">new</field>-->
+    </record>
+    <menuitem id="salaire_ats_rapport"
+              name="ATS"
+              action="salaire_ats_rapport_wizard_act"
+              parent="hr_payroll.menu_hr_payroll_root"
+              sequence="10"/>
+</odoo>

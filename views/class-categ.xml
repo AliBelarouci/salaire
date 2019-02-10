@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_class_form" model="ir.ui.view">
+        <field name="name">.form</field>
+        <field name="model">hr.class</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+
+                </header>
+                   <div class="oe_title">
+                            <h3>
+                                <table>
+                                    <tr>
+                                        <td style="padding-right:10px;">Le Classe</td>
+                                        <td style="padding-right:10px;">
+                                            <field name="cls" required="1" placeholder="Le Classe"/>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                    <td style="padding-right:10px;">L'index</td>
+                                        <td style="padding-right:10px;">
+                                            <field name="index_cls"
+
+                                                   placeholder="Index"  required="1"/>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                    <td style="padding-right:10px;">sequence</td>
+                                        <td style="padding-right:10px;">
+                                            <field name="sequence"
+
+                                                   placeholder="sequence"  required="1"/>
+                                        </td>
+                                    </tr>
+
+
+
+                                </table>
+                            </h3>
+                        </div>
+                         <notebook>
+                        <page string="Categs">
+                            <field name="categ_ids" widget="one2many_list" editable="bottom">
+                                   <tree string="vers Items"  >
+                                    <field name="categ"/>
+                                    <field name="index_iep"/>
+                                     <field name="sequence"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="_tree" model="ir.ui.view">
+        <field name="name">.tree</field>
+      <field name="model">hr.class</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="cls"/>
+                    <field name="index_cls"/>
+                    <field name="sequence"/>
+
+                </tree>
+
+            </field>
+    </record>
+
+    <record id="_search" model="ir.ui.view">
+        <field name="name">.search</field>
+        <field name="model">hr.class</field>
+        <field name="arch" type="xml">
+            <search string="">
+
+            </search>
+        </field>
+    </record>
+
+    <record id="_action_hr_class" model="ir.actions.act_window">
+        <field name="name">hr.class.action</field>
+        <field name="res_model">hr.class</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="_search"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+
+          </p><p>
+
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_hr_payroll_class" action="_action_hr_class"
+
+            groups="salaire_manager" sequence="" name="Class"/>
+</odoo>

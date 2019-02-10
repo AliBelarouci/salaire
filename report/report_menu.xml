@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report id="action_report_ats_page1"
+            model="salaire.ats.report.wizard"
+            string="Fees Detail Analysis"
+            report_type="qweb-html"
+            name="salaire.report_ats_page1"
+            file="salaire.report_ats_page1"
+            menu="False"/>
+    <report id="action_report_ats_page2"
+            model="salaire.ats.report.wizard"
+            string="Fees Detail Analysis"
+            report_type="qweb-html"
+            name="salaire.report_ats_page2"
+            file="salaire.report_ats_page2"
+            menu="False"/>
+</odoo>

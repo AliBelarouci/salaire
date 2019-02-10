@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.module.category" id="salaire.module_management">
+      <field name="name">Salaire access</field>
+      <field name="description">User access level for Salaire module</field>
+      <field name="sequence">3</field>
+    </record>
+<record id="salaire_manager" model="res.groups">
+      <field name="name">Saliere Manager</field>
+      <field name="category_id" ref="salaire.module_management"/>
+    </record>
+
+  </data>
+</odoo>
