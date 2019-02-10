@@ -15,8 +15,15 @@
                     <field name="employee_id"/>
                     <field name="date_start"/>
                     <field name="months_nbr"/>
-                    <field name="payslip_ids"/>
-                    <field name="lines_ids"/>
+
+                    <field name="lines_ids">
+                       <tree>
+                           <field name="year_month"/>
+                           <field name="jourTrav"/>
+                           <field name="TotG"/>
+                           <field name="RSS"/>
+                       </tree>
+                    </field>
 
                 </group>
 

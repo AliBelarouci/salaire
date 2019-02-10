@@ -30,16 +30,56 @@ class ATSWizard(models.TransientModel):
         report = self.env.ref('salaire.action_report_ats_page2')
         return report.report_action(self, data=data)
 
+    @api.multi
     def compute_ats(self):
         date_end = self.date_start - relativedelta(months=self.months_nbr - 1)
         clause_1 = ['&', ('date_from', '<=', self.date_start), ('date_to', '>=', date_end)]
-        _clause11 = ['&',('code', '=', 'GROSS')]
+
         clause_final = [('employee_id', '=', self.employee_id.id), '&', ('state', '=', 'done')] + clause_1
 
         payslip_ids = self.env['hr.payslip'].search(clause_final).read()
+        result_dict = {}
         for payslip in payslip_ids:
-            _clause = [('slip_id' ,'=' , payslip['id']),('code', '=', 'GROSS')]
-            sorted_rules = self.env['hr.payslip.line'].browse(payslip['line_ids']).search(_clause)
+            clause_1 = [ ('code', '=', 'GROSS')]
+            _clause1 = [('slip_id' ,'=' , payslip['id']),  ('code', '=', 'GROSS')]
+            _clause2=[('slip_id', '=', payslip['id']),  ('code', '=', 'RSS')]
+            sorted_rules1 = self.env['hr.payslip.line'].browse(payslip['line_ids']).search(_clause1).read()
+            sorted_rules2 = self.env['hr.payslip.line'].browse(payslip['line_ids']).search(_clause2).read()
+            TotG=sorted_rules1[0]['amount']
+            RSS=sorted_rules2[0]['amount']
+            year_month = datetime.strftime(payslip['date_from'], '%Y/%m')
+
+            jourTrav=0
+            result_dict[payslip['id']] ={
+
+                'year_month':year_month,
+                'jourTrav':jourTrav,
+                'TotG':TotG,
+                'RSS':RSS,
+
+            }
+        lines = [(0, 0, line) for line in list(result_dict.values())]
+        for ats in self:
+            ats.lines_ids.unlink()
+            ats.write({'lines_ids': lines})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         return []
 
 
@@ -47,8 +87,9 @@ class ATSWizardLines(models.TransientModel):
     """ Admission Analysis Wizard """
     _name = "salaire.ats.report.wizard.lines"
     _description = "Wizard For ATS Report"
-
-    month = fields.Char('Month')
+    year_month = fields.Char('Year and Month')
+    year = fields.Integer('Year')
+    month = fields.Integer('Month')
     jourTrav = fields.Integer('Jours Trav')
     TotG = fields.Float("Totale Gaine")
     RSS = fields.Float('RSS')

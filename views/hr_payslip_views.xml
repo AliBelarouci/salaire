@@ -8,6 +8,12 @@
          <field name="model">hr.payslip</field>
          <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
          <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="action_payslip_cancel1"  string="test"   class="oe_highlight"/>
+                </xpath>
+             <xpath expr="//button[@name='refund_sheet']" position="after">
+                  <button string="Cancel" name="action_payslip_cancel1"   />
+            </xpath>
              <xpath expr="//field[@name='worked_days_line_ids']/tree/field[@name='contract_id']" position="attributes">
                  <attribute name="invisible">1</attribute>
             </xpath>
