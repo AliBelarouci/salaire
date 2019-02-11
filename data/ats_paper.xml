@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-   <!-- <record id="ATS_PAGE2_FORMAT_ID" model="report.paperformat">
+    <record id="ATS_PAGE2_FORMAT_ID" model="report.paperformat">
         <field name="name">ATS Page 2</field>
         <field name="default" eval="True"/>
-        <field name="format">A4</field>
-        <field name="page_height">210</field>
-        <field name="page_width">297</field>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
         <field name="orientation">Landscape</field>
         <field name="margin_top">20</field>
         <field name="margin_bottom">23</field>
@@ -14,6 +14,6 @@
         <field name="header_line" eval="False"/>
         <field name="header_spacing">15</field>
         <field name="dpi">90</field>
-        <field name="report_ids" eval="[(4, ref('salaire.report_ats_page2'))]"></field>
-    </record>-->
+
+    </record>
 </odoo>

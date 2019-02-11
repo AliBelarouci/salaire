@@ -1,0 +1,51 @@
+@media print {
+  #salaires td{font-size: 11pt; height: 0.7cm;}
+  #ats2-head{height: 1cm;font-size: 11pt}
+  #ats2-footer1{width: 40%;height: 2.5cm}
+  #ats2-footer2{height: 2.5cm ;text-align: left;font-size: 9pt;}
+  #ats2-footer3{height: 2.5cm; width: 100%;font-size: 9pt;}
+  .dinars .detail {display: none}
+  .for-scrren{display: none}
+  .for-print{display: block}
+}
+@media screen {
+  .for-print{display: none}
+}
+#ats_page2 input{text-align: center}
+#salaires {
+  border-collapse: collapse;
+  direction: ltr;
+  width: 100%;
+  border: 1px solid black;
+}
+
+#salaires th {
+  border: 1px solid black;
+  text-align: center;
+  width: 20%;
+  font-size: 8pt;
+  /*padding: 10px 0;*/
+  height: 1cm;
+  vertical-align: middle;
+}
+
+#salaires td{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  text-align: center;
+  height: 0.35cm;
+}
+#salaires .dinars{
+  text-align: right;
+  padding-right: 1cm;
+}
+#ats2-head{height: 1cm;margin-bottom: 10px}
+#ats2-head div{font-size: 12pt}
+
+#ats2-footer1{width: 40%;height: 2.5cm;font-size: 10pt}
+#ats2-footer2{height: 2.5cm ;text-align: left;font-size: 9pt;}
+#ats2-footer3{
+  height: 2.5cm;
+  width: 100%;
+  font-size: 9pt;
+}

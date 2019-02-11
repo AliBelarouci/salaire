@@ -32,7 +32,23 @@ class ATSWizard(models.TransientModel):
 
     @api.multi
     def compute_ats(self):
+
+
+        from datetime import datetime
+        from dateutil.relativedelta import relativedelta
+        from dateutil.rrule import rrule, MONTHLY
         date_end = self.date_start - relativedelta(months=self.months_nbr - 1)
+
+
+        oneMonth = relativedelta(months=1)
+
+        months = [dt.strftime("%Y/%m")
+                  for dt in rrule(MONTHLY, dtstart=date_end,
+                                  until=self.date_start + oneMonth)]
+
+        del months[-1]
+
+
         clause_1 = ['&', ('date_from', '<=', self.date_start), ('date_to', '>=', date_end)]
 
         clause_final = [('employee_id', '=', self.employee_id.id), '&', ('state', '=', 'done')] + clause_1
@@ -48,16 +64,27 @@ class ATSWizard(models.TransientModel):
             TotG=sorted_rules1[0]['amount']
             RSS=sorted_rules2[0]['amount']
             year_month = datetime.strftime(payslip['date_from'], '%Y/%m')
+            jourTrav = 0
 
-            jourTrav=0
-            result_dict[payslip['id']] ={
-
-                'year_month':year_month,
-                'jourTrav':jourTrav,
-                'TotG':TotG,
-                'RSS':RSS,
-
+            result_dict[year_month] = {
+                'year_month': year_month,
+                'jourTrav': jourTrav,
+                'TotG': TotG,
+                'RSS': RSS,
             }
+
+        a=list(result_dict.keys())
+
+        temp3 = [item for item in months if item not in a]
+
+        for t in temp3:
+            result_dict[t] = {
+                'year_month': t,
+                'jourTrav': 0,
+                'TotG': 0,
+                'RSS': 0,
+            }
+        result_dict.sort(reverse=True)
         lines = [(0, 0, line) for line in list(result_dict.values())]
         for ats in self:
             ats.lines_ids.unlink()

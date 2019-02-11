@@ -1,0 +1,47 @@
+
+
+
+@media print {
+
+
+  .piece{width: 96%;margin: 0 auto;}
+  .piece table{width: 100%;position: relative;top: -10px;}
+  .fr-piece-title{margin: 0 auto;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    padding:0 5px;
+  }
+}
+
+
+
+#ats_page1{font-family: "Times New Roman";width: 100%}
+.piece{width: 96%;margin: 0 auto;}
+.piece table{width: 100%;position: relative;top: -1px;}
+.fr-piece-title{margin: 0 auto;
+  z-index: 1;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  padding:0 5px;
+}
+/*----------------------------piece1----------------------------------*/
+#piece1{height: 3cm;}
+#piece2{height: 3cm;}
+#piece3{height: 3cm;}
+#piece4{height: 3cm;}
+#piece5{height: 3cm;}
+#piece6{height: 4.73cm;}
+.head-td{text-align: center;font-size: 12pt;font-weight: bold;vertical-align: top}
+.body-td{font-size: 10pt;vertical-align: top;border: solid 1px;padding-top: 10px}
+.body-td table{direction: ltr;width: 100%}
+.head-td div:first-child{font-size: 16pt;}
+#piece1-td1{font-size: 20pt;font-weight:bold;text-align: center;width: 65%;margin-top: 20px}
+#piece1 td{vertical-align: top}
+
+#piece1-td2{font-size: 10pt}
+#piece1-td2  table{height: 3cm;}
+#piece1-td2  table td{padding-right: 5px;padding-left: 5px}
+/*--------------------------------------piece4---------------------------------------*/
+
+

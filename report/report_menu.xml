@@ -2,16 +2,17 @@
 <odoo>
     <report id="action_report_ats_page1"
             model="salaire.ats.report.wizard"
-            string="Fees Detail Analysis"
+            string="ATS PAGE 1"
             report_type="qweb-html"
             name="salaire.report_ats_page1"
             file="salaire.report_ats_page1"
             menu="False"/>
     <report id="action_report_ats_page2"
             model="salaire.ats.report.wizard"
-            string="Fees Detail Analysis"
+            string="ATS PAGE 2"
             report_type="qweb-html"
             name="salaire.report_ats_page2"
             file="salaire.report_ats_page2"
+            paperformat="salaire.ATS_PAGE2_FORMAT_ID"
             menu="False"/>
 </odoo>
