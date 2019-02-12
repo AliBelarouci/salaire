@@ -17,6 +17,13 @@ class ATSWizard(models.TransientModel):
     fait_a = fields.Date("Fait à", default=lambda self: fields.Date.to_string(date.today()))
     fait_le = fields.Char("Fait le", default=lambda self:self.env.user.company_id.name)
     lines_ids = fields.One2many(comodel_name="salaire.ats.report.wizard.lines", inverse_name='ats_id')
+    state = fields.Selection([
+        ('draft', 'New'),
+        ('done', 'Done'),
+
+
+    ], string='Status',
+        track_visibility='onchange', help='Status of the ATS', default='draft')
 
     @api.multi
     def print_page1(self):
@@ -79,6 +86,8 @@ class ATSWizard(models.TransientModel):
         for ats in self:
             ats.lines_ids.unlink()
             ats.write({'lines_ids': lines})
+
+        return self.write({'state': 'done'})
 
 
 
