@@ -14,6 +14,8 @@ class ATSWizard(models.TransientModel):
                              )
     months_nbr = fields.Integer('Months Number')
     payslip_ids = fields.Many2many('hr.payslip', 'hr_payslip_group_rel', 'payslip_id', 'employee_id', 'Payslips')
+    fait_a = fields.Date("Fait à", default=lambda self: fields.Date.to_string(date.today()))
+    fait_le = fields.Char("Fait le", default=lambda self:self.env.user.company_id.name)
     lines_ids = fields.One2many(comodel_name="salaire.ats.report.wizard.lines", inverse_name='ats_id')
 
     @api.multi
@@ -28,31 +30,19 @@ class ATSWizard(models.TransientModel):
         data = {}
         data['employee_id'] = self.employee_id
         report = self.env.ref('salaire.action_report_ats_page2')
-        return report.report_action(self, data=data)
+        return report.report_action(self)
 
     @api.multi
     def compute_ats(self):
-
-
         from datetime import datetime
         from dateutil.relativedelta import relativedelta
         from dateutil.rrule import rrule, MONTHLY
         date_end = self.date_start - relativedelta(months=self.months_nbr - 1)
-
-
         oneMonth = relativedelta(months=1)
-
-        months = [dt.strftime("%Y/%m")
-                  for dt in rrule(MONTHLY, dtstart=date_end,
-                                  until=self.date_start + oneMonth)]
-
+        months = [dt.strftime("%Y/%m")for dt in rrule(MONTHLY, dtstart=date_end,until=self.date_start + oneMonth)]
         del months[-1]
-
-
         clause_1 = ['&', ('date_from', '<=', self.date_start), ('date_to', '>=', date_end)]
-
         clause_final = [('employee_id', '=', self.employee_id.id), '&', ('state', '=', 'done')] + clause_1
-
         payslip_ids = self.env['hr.payslip'].search(clause_final).read()
         result_dict = {}
         for payslip in payslip_ids:
@@ -84,7 +74,7 @@ class ATSWizard(models.TransientModel):
                 'TotG': 0,
                 'RSS': 0,
             }
-        result_dict.sort(reverse=True)
+
         lines = [(0, 0, line) for line in list(result_dict.values())]
         for ats in self:
             ats.lines_ids.unlink()

@@ -7,6 +7,9 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
+             <xpath expr="//field[@name='address_id']" position="before">
+                 <field name="numSS"/>
+            </xpath>
                  <xpath expr="//page[@name='personal_information']" position="attributes">
                  <attribute name="invisible">1</attribute>
             </xpath>

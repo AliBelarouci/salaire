@@ -2,6 +2,8 @@
 <odoo>
     <template id="report_ats_page2">
         <t t-call="web.html_container">
+             
+<t t-foreach="docs" t-as="o">
 
                 <div class="font">
                     <div class="page">
@@ -72,36 +74,14 @@
 
           </td>
         </tr>
-        <tr >
+        <tr  t-foreach="o.lines_ids" t-as="line">
           <td  class="">
-            2018/9
-          </td>
-          <td  class="">
-
-
+              <span t-field="line.year_month"/>
 
           </td>
           <td  class="">
-          /
-          </td>
-          <td  class="dinars">
 
 
- 116,017.80
-
-
-          </td>
-          <td  class="dinars" style="direction:rtl">
-
-
-            10,441.60
-          </td>
-        </tr>
-            <tr >
-          <td  class="">
-            2018/10
-          </td>
-          <td  class="">
 
           </td>
           <td  class="">
@@ -109,17 +89,19 @@
           </td>
           <td  class="dinars">
 
-            115,668.60
 
 
+ <span t-field="line.TotG"/>
 
           </td>
           <td  class="dinars" style="direction:rtl">
 
+ <span t-field="line.RSS"/>
 
-             10,410.17
+
           </td>
         </tr>
+
         <tr >
           <td  class="ats_col ats_col1">
 
@@ -277,7 +259,7 @@
 
         </tbody>
     </table>
-     <table  id="ats2-footer1">
+     <table  id="ats2-fait">
         <tbody ><tr >
             <td  style="vertical-align:top">
                 <table  style="width:100%">
@@ -288,15 +270,7 @@
                                     <tbody ><tr >
                                         <td  nowrap="">حرر بـ</td>
                                         <td  style="width:100%;border-bottom:1px dotted #c4c4c4;text-align:center">
-                                          <ats-text  style="float: left;margin-left: 50px" _nghost-c10=""><div _ngcontent-c10="" style="width: 100%;    text-align: center">
-
-
-<!----><span _ngcontent-c10="" class="ats-text-span">إليزي
-<i _ngcontent-c10="" class="edit-btn for-scrren fa fa-edit"></i>
-</span>
-<!---->
-</div>
-</ats-text>
+                                         <span t-field="o.fait_le"/>
 
 
                                         </td>
@@ -311,17 +285,7 @@
                                     <tbody ><tr >
                                         <td  style="padding-right:5px">في</td>
                                         <td  style="width:100%;border-bottom:1px dotted #c4c4c4;text-align:center">
-                                          <ats-text  style="" _nghost-c10=""><div _ngcontent-c10="" style="width: 100%;    text-align: center">
-
-
-<!----><span _ngcontent-c10="" class="ats-text-span">2019/02/11
-<i _ngcontent-c10="" class="edit-btn for-scrren fa fa-edit"></i>
-</span>
-<!---->
-</div>
-</ats-text>
-
-
+                                    <span t-field="o.fait_a"/>
                                         </td>
                                         <td  nowrap="">  Fait à</td>
                                     </tr>
@@ -348,15 +312,9 @@
             <td >
                 <table  style="width:100%">
                     <td  style="width:100%;border-bottom:1px dotted #c4c4c4;text-align:center" nowrap="">
-                      <ats-text  style=" " _nghost-c10=""><div _ngcontent-c10="" style="width: 100%;    text-align: center">
+                    <span  class="ats-text-span">مدير ثانوية إمبارك الميلي
 
-
-<!----><span _ngcontent-c10="" class="ats-text-span">مدير ثانوية إمبارك الميلي
-<i _ngcontent-c10="" class="edit-btn for-scrren fa fa-edit"></i>
 </span>
-<!---->
-</div>
-</ats-text>
 
 
                     </td>
@@ -376,15 +334,17 @@
         </tr>
     </tbody></table>
 
-<div  id="ats2-footer2"> <div  style="width: 40%;float: left;text-align: center">
+<div  id="emploieur">
+    <div  style="width: 40%;float: left;text-align: center">
   <span >ختم صاحب العمل</span>
   <span >Cachet de l'employeur</span>
-</div></div>
+</div>
+</div>
 
 
         <table  id="ats2-footer3" style="direction: rtl;">
             <tbody ><tr >
-                <td  style="direction:rtl">
+                <td  style="direction:rtl;text-align:right">
                     (1)أذكر الأجور كما هي مبينة في بطاقة الأجر الموافقة لـ
                     <ul >
                         <li >
@@ -477,13 +437,24 @@
   width: 100%;
   font-size: 9pt;
 }
+    #ats2-fait{
+    direction: rtl;
+    float:right;
+    width:450px
+    }
+    #emploieur{
+width: 40%;
+float: left;
+text-align: center;
+margin-top: 50px
+    }
 
 </style>
 </div>
 
                     </div>
                 </div>
-
+</t>
         </t>
     </template>
 </odoo>
