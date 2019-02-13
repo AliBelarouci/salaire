@@ -45,6 +45,7 @@
          'report/report_menu.xml',
          'views/hr_contract_views.xml',
          'views/hr_employee_views.xml',
+         'views/res.company.xml',
         #'views/res_config_settings_views.xml',
         'views/hr_payslip_views.xml',
 
