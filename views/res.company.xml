@@ -7,8 +7,20 @@
         <field name="model">res.company</field>
         <field name="inherit_id" ref="base.view_company_form"/>
         <field name="arch" type="xml">
-             <xpath expr="//page[1]/group/group" position="after">
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="string">Raison sociale</attribute>
+                <attribute name="placeholder">Raison sociale</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <div>
+                     <field name="gerant" placeholder="Gerant"/>
+                </div>
+
+            </xpath>
+             <xpath expr="//page[1]/group/group" position="before">
                  <group>
+                     
+                     <field name="company_registry"/>
                      <field name="numSS"/>
                      <field name="dateAff"/>
                      <field name="caisseCnas"/>
