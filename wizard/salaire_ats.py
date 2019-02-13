@@ -27,11 +27,10 @@ class ATSWizard(models.TransientModel):
 
     @api.multi
     def print_page1(self):
-        data = {}
-        data['employee_id'] = self.employee_id
+
         report = self.env.ref(
             'salaire.action_report_ats_page1')
-        return report.report_action(self, data=data)
+        return report.report_action(self)
 
     def print_page2(self):
         data = {}

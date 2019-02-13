@@ -6,6 +6,7 @@
             report_type="qweb-html"
             name="salaire.report_ats_page1"
             file="salaire.report_ats_page1"
+            paperformat="salaire.A4_PAPER_FORMAT_ID"
             menu="False"/>
     <report id="action_report_ats_page2"
             model="salaire.ats.report.wizard"

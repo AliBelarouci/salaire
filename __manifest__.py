@@ -36,6 +36,8 @@
          'data/hr_payroll_data200.xml',
          'data/hr_payroll_data300.xml',
          'data/hr_payroll_data.xml',
+         'data/A4_paper.xml',
+         'data/crons.xml',
          'data/ats_paper.xml',
          'security/user_groups.xml',
          'security/ir.model.access.csv',

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 <record model="ir.ui.view" id="ats_detail_report_wizard_form">
-        <field name="name">salaire.ats.report.wizard</field>
+        <field name="name">salaire/ATS</field>
         <field name="model">salaire.ats.report.wizard</field>
         <field name="arch" type="xml">
             <form string="Fees Details">

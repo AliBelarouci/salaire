@@ -2,18 +2,932 @@
 <odoo>
     <template id="report_ats_page1">
         <t t-call="web.html_container">
-            <t t-call="web.internal_layout">
+            <t t-foreach="docs" t-as="o">
                 <div class="font">
                     <div class="page">
-                        <br></br>
-                        <div class="text-center">
-                            <h3>
-                                <strong>Fees Detail</strong>
-                            </h3>
-                        </div>
-                        <br></br>
+                        <div  id="ats_page1">
+  <table  class="piece" id="piece1">
+    <tbody ><tr >
+      <td  id="piece1-td1">
+        <div >شهـادة العمـل والأجر</div>
+        <div >ATTESTATION</div>
+        <div >DU TRAVAIL ET DE SALAIRE</div>
+      </td>
+      <td  id="piece1-td2" style="text-align: center">
+        <div >الضمان الإجتماعي</div>
+        <div >SECURITE SOCIALE</div>
+        <table  style="direction: ltr;width: 100%;border: solid 1px">
+          <tbody ><tr >
+            <td  style="width: 65%;font-weight: bold;text-align: left">Agence:</td>
+            <td  style="text-align: right">وكالة</td>
+          </tr>
+          <tr >
+            <td  style=";text-align: left;font-weight: bold">centre de paiement:</td>
+            <td  style="text-align: right">مركز الدفع</td>
+          </tr>
+          <tr >
+            <td ></td>
+            <td ></td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+  <div  class="piece">
+  <div  class="head-td">
+    <div >هوية رب العمل</div>
+    <div  class="fr-piece-title" style="width: 8cm;
+margin: 0 auto;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    padding:0 5px;">IDENTIFICATION DE L'EMPLOYEUR</div>
+  </div>
+  <table  id="piece2" style="position: relative;top: -10px;">
+
+    <tbody ><tr >
+      <td  class="body-td">
+        <table  style="direction: ltr;width: 100%"><tbody ><tr >
+          <td  nowrap="">Nom et Prénom:</td>
+          <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
+
+
+          </td>
+          <td  style="text-align: right;direction: rtl" nowrap="">
+الإسم واللقب:
+            </td>
+        </tr></tbody></table>
+        <table  style="direction: ltr;width: 100%">
+          <tbody ><tr >
+            <td  style="width: 25%;padding-left: 20px">ou</td>
+            <td >n°de l'adhérent</td>
+            <td  style="border: solid 1px;width: 25%;text-align: center">
+
+            </td>
+            <td  style="padding-left: 20px">رقم المنخرط</td>
+            <td  style="width: 25%;text-align: right;padding-right: 20px">أو</td>
+          </tr>
+        </tbody></table>
+        <table  style="direction: ltr;width: 100%">
+          <tbody ><tr >
+            <td  nowrap="">Raison social:</td>
+            <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
+
+
+            </td>
+            <td  style="text-align: right;direction: rtl" nowrap="">
+الطبيعة الإجتماعية:
+            </td>
+          </tr>
+          <tr >
+            <td  nowrap="">Adresse:</td>
+            <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
+
+
+            </td>
+            <td  style="text-align: right;direction: rtl" nowrap="">
+ العنوان:
+            </td>
+          </tr>
+          <tr >
+            <td  colspan="3" style="border-bottom:dotted 1px #bcbcbc ;padding-right: 20px;padding-left: 20px"></td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+
+  </tbody></table>
+</div>
+  <div  class="piece">
+    <div  class="head-td">
+      <div >هوية الأجير</div>
+      <div  class="fr-piece-title" style="width: 7cm">IDENTIFICATION DU SALARIE</div>
+    </div>
+
+  <table  id="piece3" style="position: relative;top: -10px;">
+    <tbody ><tr >
+      <td  class="body-td">
+        <table  style="direction: ltr;width: 100%"><tbody ><tr >
+          <td  nowrap="">Nom :</td>
+          <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
+
+
+          </td>
+          <td  style="text-align: right;direction: rtl" nowrap="">اللقب :</td>
+        </tr></tbody></table>
+        <table  style="direction: ltr;width: 100%">
+          <tbody ><tr >
+
+            <td  style="width: 40%;text-align: right;padding-right: 20px">n°de l'immatriculation</td>
+            <td  style="border: solid 1px;">
+
+
+            </td>
+            <td  style="padding-left: 20px;width: 40%;text-align: left">رقم التسجيل</td>
+
+          </tr>
+        </tbody></table>
+        <table  style="direction: ltr;width: 100%"><tbody ><tr >
+          <td  nowrap="">Prénom :</td>
+<td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
+
+
+</td>
+          <td  style="text-align: right;direction: rtl" nowrap="">الإسم:</td>
+        </tr></tbody></table>
+        <table >
+          <tbody ><tr >
+            <td ><span >Né(e) le:</span>
+            </td>
+            <td >
+
+            </td>
+            <td >à</td>
+
+            <td  style="width: 35%;border-bottom:dotted 1px #bcbcbc ">
+
+            </td>
+            <td ><span >بـ</span></td>
+            <td ></td>
+
+
+            <td  style="text-align: right;direction: rtl">
+            <span >تاريخ الإزدياد:</span>
+          </td>
+          </tr>
+        </tbody></table>
+        <table >
+          <tbody ><tr >
+            <td >Adresse:</td>
+            <td  style="width: 75%;border-bottom:dotted 1px #bcbcbc ">
+
+
+            </td>
+            <td  style="text-align: right">العنوان</td>
+          </tr>
+          <tr >
+            <td >Profession:</td>
+            <td  style="width: 85%;border-bottom:dotted 1px #bcbcbc ">
+
+
+            </td>
+            <td  style="direction: rtl; text-align: right">المهنة:</td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+  <div  class="piece">
+    <div  class="head-td">
+      <div >المعلومات الضرورية لدراسة الحقوق</div>
+      <div  class="fr-piece-title" style="width: 13.5cm">RENSEIGNEMENT NECESSAIRES POUR L'ETUDE DES DROITS</div>
+    </div>
+
+  <table  class="piece" id="piece4" style="position: relative;top: -10px;">
+
+    <tbody ><tr >
+      <td  class="body-td">
+        <table >
+          <tbody ><tr >
+            <td  style="width:40%;border-bottom: dotted  #bcbcbc 1px;">Date de recrutement</td>
+            <td  style="width: 20%">
+              <dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur>
+
+            </td>
+            <td  style="width:40%;border-bottom: dotted  #bcbcbc 1px;text-align: right">تاريخ التوضيف</td>
+          </tr>
+          <tr >
+            <td  style="border-bottom: dotted  #bcbcbc 1px;">Date du dernier jour de travail</td>
+            <td  style="width: 20%">
+              <dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur>
+
+            </td>
+            <td  style="width:40%;border-bottom: dotted  #bcbcbc 1px;;text-align: right">تاريخ أخر يوم عمل</td>
+          </tr>
+          <tr >
+            <td  style="width:40%;border-bottom: dotted  #bcbcbc 1px;">Date de reprise de travail</td>
+            <td  style="width: 20%">
+              <dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur>
+
+            </td>
+            <td  style="width:40%;border-bottom: dotted  #bcbcbc 1px;text-align: right;">تاريخ إستئناف العمل</td>
+          </tr>
+        </tbody></table>
+        <table >
+          <tbody ><tr >
+            <td >L'intéressé(e) n'a pas repris son travail à ce jour:</td>
+            <td  style="border-bottom: dotted  #bcbcbc 1px;"></td>
+            <td  style="direction: rtl">المعني (ة) بالأمر لم يستأنف العمل إلى يومنا هذا :</td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+  <div  class="piece">
+    <div  class="head-td">
+      <div >في حالة التوقف عن العمل لمدة تقل عن 06 أشهر أو في حالة الأمومة</div>
+      <div >
+        EN CAS D'ARETE DE TRAVAIL
+      </div>
+
+        <div  class="fr-piece-title" style="width: 14.5cm">
+          D'UNE DUREE INFERIEURE A 06 MOIS ET EN CAS DE MATERNITE
+      </div>
+    </div>
+
+
+  <table  id="piece5" style="position: relative;top: -10px;">
+
+    <tbody ><tr >
+      <td  class="body-td">
+        <table >
+          <tbody ><tr >
+            <td  style="width: 57.5%">
+
+              <table  class="sp_table" style="">
+                <tbody ><tr ><td  style="border: 0;">l'assuré(e) a travaillé pendant</td>
+                <td >
+                  <ats-number  ><!----><table  class="ats-number" style="direction: ltr">
+  <tbody ><tr >
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+         
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+  </tr>
+</tbody></table>
+<!---->
+</ats-number>
+                </td>
+
+                <td  style="border: 0;padding-left: 5px;">jours</td>
+
+                  <td ><ats-number  ><!----><table  class="ats-number" style="direction: ltr">
+  <tbody ><tr >
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+  </tr>
+</tbody></table>
+<!---->
+</ats-number></td>
+                  <td  style="border: 0;padding-left: 5px;">heurs</td>
+              </tr>
+              </tbody></table>
+            </td>
+            <td >
+              <table  class="sp_table" style="direction: rtl">
+                <tbody ><tr >
+                  <td  style="border: 0;">المؤمن إشتغل لمدة</td>
+                  <td ><ats-number  ><!----><table  class="ats-number" style="direction: ltr">
+  <tbody ><tr >
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+  </tr>
+</tbody></table>
+<!---->
+</ats-number></td>
+
+                  <td  style="border: 0;padding-right: 5px;">يوم</td>
+                  <td ><ats-number  ><!----><table  class="ats-number" style="direction: ltr">
+  <tbody ><tr >
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+  </tr>
+</tbody></table>
+<!---->
+</ats-number></td>
+
+                  <td  style="border: 0;padding-right: 5px;">ساعة</td>
+                </tr>
+              </tbody></table>
+
+            </td>
+          </tr>
+
+        </tbody></table>
+        <table >
+          <tbody ><tr >
+            <td >du</td>
+            <td  style="width: 3cm;">
+              <dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur>
+            </td>
+            <td >au</td>
+            <td  style="width: 3cm;"><dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur></td>
+            <td  style="width: 3cm;"></td>
+            <td  style="width: 3cm;"><dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur></td>
+            <td >إلى</td>
+            <td  style="width: 3cm;"><dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur></td>
+            <td >من</td>
+
+          </tr>
+        </tbody></table>
+        <table >
+          <tbody ><tr >
+            <td >
+              <div >
+                au cours des 03 mois ou des 12 mois de la date précédante
+              </div>
+              <div >la constatation de la maladie ou de la grossesse</div>
+            </td>
+            <td ></td>
+            <td  style="direction: rtl">
+              <div >
+                خلال (03) ثلاثة أشهر أو (12)إثنى عشر شهرا من التاريخ
+              </div>
+              <div >إلى التاريخ الذي سبق معاينة المرض أو الحمل</div>
+            </td>
+
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+  <div  class="piece">
+    <div  class="head-td">
+      <div >في حالة التوقف عن العمل أكثر من 06 أشهر أو في حالة العجز</div>
+      <div >
+        EN CAS D'ARETE DE TRAVAIL
+      </div>
+      <div  class="fr-piece-title" style="width: 10.5cm">
+        DEPASSANT 06 MOIS OU EN CAS D'INVALIDITE
+      </div>
+    </div>
+
+  <table  id="piece6" style="position: relative;top: -10px;">
+
+    <tbody ><tr >
+      <td  class="body-td">
+        <table >
+          <tbody ><tr >
+            <td  style="width: 57.5%">
+
+              <table  class="sp_table" style="">
+                <tbody ><tr ><td  style="border: 0;">l'assuré(e) a travaillé pendant</td>
+                  <td >
+                    <ats-number  ><!----><table  class="ats-number" style="direction: ltr">
+  <tbody ><tr >
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+  </tr>
+</tbody></table>
+<!---->
+</ats-number>
+                  </td>
+
+                  <td  style="border: 0;padding-left: 5px;">jours</td>
+
+                  <td ><ats-number  ><!----><table  class="ats-number" style="direction: ltr">
+  <tbody ><tr >
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+  </tr>
+</tbody></table>
+<!---->
+</ats-number></td>
+                  <td  style="border: 0;padding-left: 5px;">heurs</td>
+                </tr>
+              </tbody></table>
+            </td>
+            <td >
+              <table  class="sp_table" style="direction: rtl">
+                <tbody ><tr >
+                  <td  style="border: 0;">المؤمن إشتغل لمدة</td>
+                  <td ><ats-number  ><!----><table  class="ats-number" style="direction: ltr">
+  <tbody ><tr >
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+  </tr>
+</tbody></table>
+<!---->
+</ats-number></td>
+
+                  <td  style="border: 0;padding-right: 5px;">يوم</td>
+                  <td ><ats-number  ><!----><table  class="ats-number" style="direction: ltr">
+  <tbody ><tr >
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+    <td >
+       <!----><span >
+        
+       </span>
+      <!---->
+    </td>
+  </tr>
+</tbody></table>
+<!---->
+</ats-number></td>
+
+                  <td  style="border: 0;padding-right: 5px;">ساعة</td>
+                </tr>
+              </tbody></table>
+
+            </td>
+          </tr>
+
+        </tbody></table>
+        <table >
+          <tbody ><tr >
+            <td >du</td>
+            <td  style="width: 3cm;">
+              <dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur>
+            </td>
+            <td >au</td>
+            <td  style="width: 3cm;"><dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur></td>
+            <td  style="width: 3cm;"></td>
+            <td  style="width: 3cm;"><dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur></td>
+            <td >إلى</td>
+            <td  style="width: 3cm;"><dateur >
+
+<!----><table class="dateur-table" style="direction: ltr; width: 3cm" cellspacing="0" border="0">
+  <tbody><tr>
+    <td class="lb">
+      <!----><span class="ats-text-span" style="float: left;top:0;border: 0">
+<i class="edit-btn for-scrren fa fa-edit"></i>
+</span>
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+    <td class="lb">
+      <!---->
+      <span class="divider"></span>
+      <!---->
+    </td>
+  </tr>
+
+</tbody></table>
+
+
+<!---->
+</dateur></td>
+            <td >من</td>
+
+          </tr>
+        </tbody></table>
+        <table >
+          <tbody ><tr >
+            <td >
+              <div >
+                au cours des  12 mois ou des 03 années
+                précédantes
+              </div>
+              <div >la constatation de la maladie </div>
+            </td>
+            <td ></td>
+            <td  style="direction: rtl">
+              <div >
+                خلال (12)إثنى عشر شهرا أو (03) سنوات التي
+              </div>
+              <div >سبقت معاينة المرض أو الحمل</div>
+            </td>
+
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+
+</div>
 
                     </div>
+
+
+                    <style>
+                        #ats_page1{font-family: "Times New Roman";width: 100%}
+.piece{width: 96%;margin: 0 auto;}
+.piece table{width: 100%;position: relative;top: -1px;}
+.fr-piece-title{margin: 0 auto;
+  z-index: 1;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  padding:0 5px;
+}
+/*----------------------------piece1----------------------------------*/
+#piece1{height: 3cm;}
+#piece2{height: 3cm;}
+#piece3{height: 3cm;}
+#piece4{height: 3cm;}
+#piece5{height: 3cm;}
+#piece6{height: 4.73cm;}
+.head-td{text-align: center;font-size: 12pt;font-weight: bold;vertical-align: top}
+.body-td{font-size: 10pt;vertical-align: top;border: solid 1px;padding-top: 10px}
+.body-td table{direction: ltr;width: 100%}
+.head-td div:first-child{font-size: 16pt;}
+#piece1-td1{font-size: 20pt;font-weight:bold;text-align: center;width: 65%;margin-top: 20px}
+#piece1 td{vertical-align: top}
+
+#piece1-td2{font-size: 10pt}
+#piece1-td2  table{height: 3cm;}
+#piece1-td2  table td{padding-right: 5px;padding-left: 5px}
+                    </style>
                 </div>
             </t>
         </t>

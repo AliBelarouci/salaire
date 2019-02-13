@@ -63,5 +63,8 @@ class HrPayslip(models.Model):
             raise UserError(_("Cannot cancel a payslip that is done."))
         return self.write({'state': 'cancel'})
 
+    def process_demo_scheduler_queue(self, context=None):
+        raise UserError(_("the cron is runing."))
+
 
 
