@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+    <record id="hr_employee_rule_manager" model="ir.rule">
+        <field name="name">Employee by company</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hr.group_hr_user'))]"/>
+    </record>
+     <record id="hr_contract_rule_manager" model="ir.rule">
+        <field name="name">Contract by company</field>
+        <field name="model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hr_payroll.group_hr_payroll_user'))]"/>
+    </record>
+     <record id="hr_payroll_rule_manager" model="ir.rule">
+        <field name="name">Payslip by company</field>
+        <field name="model_id" ref="model_hr_payslip"/>
+        <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+        <field name="groups" eval="[(4, ref('hr_payroll.group_hr_payroll_user'))]"/>
+    </record>
+
+</data>
+</odoo>
