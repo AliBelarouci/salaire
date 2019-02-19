@@ -8,9 +8,13 @@
          <field name="model">hr.payslip</field>
          <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
          <field name="arch" type="xml">
+             <xpath expr="//button[@name='refund_sheet']" position="after">
+                 <button string="Print" class="oe_highlight" name="print_sheet" states="confirm,done" type='object' />
+            </xpath>
              <xpath expr="//button[@name='refund_sheet']" position="attributes">
                  <attribute name="name">action_payslip_cancel1</attribute>
             </xpath>
+
              <xpath expr="//field[@name='worked_days_line_ids']/tree/field[@name='contract_id']" position="attributes">
                  <attribute name="invisible">1</attribute>
             </xpath>
@@ -23,9 +27,9 @@
              <xpath expr="//field[@name='input_line_ids']" position="attributes">
                  <attribute name="invisible">1</attribute>
             </xpath>
-            <xpath expr="//page[2]" position="attributes">
+            <!--<xpath expr="//page[2]" position="attributes">
                  <attribute name="invisible">1</attribute>
-            </xpath>
+            </xpath>-->
              <xpath expr="//page[4]" position="attributes">
                  <attribute name="invisible">1</attribute>
             </xpath>

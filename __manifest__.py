@@ -45,12 +45,13 @@
          'wizard/salaire_ats_wizard.xml',
          'report/ats_page1_report_view.xml',
          'report/ats_page2_report_view.xml',
+         'report/report_payslip.xml',
          'report/report_menu.xml',
          'views/hr_contract_views.xml',
          'views/hr_employee_views.xml',
 
         #'views/res_config_settings_views.xml',
-        'views/hr_payslip_views.xml',
+         'views/hr_payslip_views.xml',
 
         'views/views.xml',
         'views/templates.xml',

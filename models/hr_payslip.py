@@ -62,9 +62,30 @@ class HrPayslip(models.Model):
         if self.filtered(lambda slip: slip.state == 'done'):
             raise UserError(_("Cannot cancel a payslip that is done."))
         return self.write({'state': 'cancel'})
+    @api.multi
+    def print_sheet(self):
+        report = self.env.ref('salaire.action_report_payslip')
+        return report.report_action(self)
 
     def process_demo_scheduler_queue(self, context=None):
         raise UserError(_("the cron is runing."))
+
+    def compute_IRG(self,Tranche):
+        IRG = 0
+        if Tranche > 0 and Tranche <=10000:
+            IRG = 0
+        if Tranche > 10000 and Tranche <=30000:
+            IRG = (Tranche-10000)*0.2
+        if Tranche > 30000 and Tranche <=120000:
+            IRG = ((Tranche-30000)*0.3)+4000
+        return IRG
+    def compute_Abatt(self,IRGBRUT):
+        abatt = IRGBRUT*0.4
+        if abatt < 1000:
+            return 1000
+        if abatt > 1500:
+            return 1500
+        return abatt
 
 
 
