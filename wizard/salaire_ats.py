@@ -1,7 +1,7 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from datetime import date, datetime, time
 from dateutil.relativedelta import relativedelta
-
+from odoo.exceptions import ValidationError
 
 class ATSWizard(models.TransientModel):
     """ Admission Analysis Wizard """
@@ -9,8 +9,13 @@ class ATSWizard(models.TransientModel):
     _description = "Wizard For ATS Report"
 
     employee_id = fields.Many2one('hr.employee', 'Employee')
-    date_start = fields.Date(string='Date From', readonly=True, required=True,
+    date_start = fields.Date(string='Date From',  required=True,
                              default=lambda self: fields.Date.to_string(date.today().replace(day=1))
+                             )
+    company_id = fields.Many2one('res.company', string='Company', required=True,
+                                 default=lambda self: self.env['res.users']._get_company())
+
+    date_end = fields.Date(string='Date End',  required=True,
                              )
     months_nbr = fields.Integer('Months Number')
     payslip_ids = fields.Many2many('hr.payslip', 'hr_payslip_group_rel', 'payslip_id', 'employee_id', 'Payslips')
@@ -20,11 +25,24 @@ class ATSWizard(models.TransientModel):
     state = fields.Selection([
         ('draft', 'New'),
         ('done', 'Done'),
+        ('error', 'Error'),
 
 
     ], string='Status',
         track_visibility='onchange', help='Status of the ATS', default='draft')
 
+    @api.onchange('date_from')
+    def onchange_date(self):
+        if self.date_end:
+            if self.filtered(lambda c: c.date_end and c.date_start > c.date_end):
+                raise ValidationError(_('Contract start date must be earlier than contract end date.'))
+
+        if self.date_start.day != 1:
+            raise ValidationError(_('Error! date start incorrect.'))
+        # if self.date_end:
+        #     if self.date_end.day != 1:
+        #         raise ValidationError(_('Error! date end incorrect.'))
+        # return self.write({'state': 'error'})
     @api.multi
     def print_page1(self):
 
@@ -45,7 +63,8 @@ class ATSWizard(models.TransientModel):
         from dateutil.rrule import rrule, MONTHLY
         date_end = self.date_start - relativedelta(months=self.months_nbr - 1)
         oneMonth = relativedelta(months=1)
-        months = [dt.strftime("%Y/%m")for dt in rrule(MONTHLY, dtstart=date_end,until=self.date_start + oneMonth)]
+        months = [dt.strftime("%Y/%m")for dt in
+                  rrule(MONTHLY, dtstart=self.date_start,until=self.date_end + oneMonth)]
         del months[-1]
         clause_1 = ['&', ('date_from', '<=', self.date_start), ('date_to', '>=', date_end)]
         clause_final = [('employee_id', '=', self.employee_id.id), '&', ('state', '=', 'done')] + clause_1

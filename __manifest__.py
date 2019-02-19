@@ -40,7 +40,7 @@
          'data/crons.xml',
          'data/ats_paper.xml',
          'security/user_groups.xml',
-            'security/rules.xml',
+         'security/rules.xml',
          'security/ir.model.access.csv',
          'wizard/salaire_ats_wizard.xml',
          'report/ats_page1_report_view.xml',

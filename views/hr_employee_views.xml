@@ -7,12 +7,32 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                
+                <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="prenom" placeholder="Employee's Prenom" required="True"/>
+
+                            </h1>
+            </xpath>
              <xpath expr="//field[@name='address_id']" position="before">
                  <field name="numSS"/>
             </xpath>
-                 <xpath expr="//page[@name='personal_information']" position="attributes">
+                 <!--<xpath expr="//page[@name='personal_information']" position="attributes">
                  <attribute name="invisible">1</attribute>
-            </xpath>
+            </xpath>-->
+            <xpath expr="//page[2]/group/group[1]" position="attributes">
+                  <attribute name="invisible">1</attribute>
+             </xpath>
+            <xpath expr="//page[2]/group/group[2]" position="attributes">
+                  <attribute name="invisible">1</attribute>
+             </xpath>
+            <xpath expr="//page[2]/group/group[5]" position="attributes">
+                  <attribute name="invisible">1</attribute>
+             </xpath>
+            <xpath expr="//page[2]/group/group[6]" position="attributes">
+                  <attribute name="invisible">1</attribute>
+             </xpath>
             <xpath expr="//page[@name='hr_settings']" position="attributes">
                  <attribute name="invisible">1</attribute>
             </xpath>

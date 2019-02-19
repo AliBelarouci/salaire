@@ -18,16 +18,23 @@
         <div >SECURITE SOCIALE</div>
         <table  style="direction: ltr;width: 100%;border: solid 1px">
           <tbody ><tr >
-            <td  style="width: 65%;font-weight: bold;text-align: left">Agence:</td>
-            <td  style="text-align: right">وكالة</td>
+            <td  style="width: 30%;font-weight: bold;text-align: left">Agence:</td>
+            <td   >
+                <span class="valueCls" t-field="o.company_id.centre"/>
+            </td>
+            <td  style="width: 30%;font-weight: bold;text-align: right">وكالة</td>
           </tr>
           <tr >
             <td  style=";text-align: left;font-weight: bold">centre de paiement:</td>
-            <td  style="text-align: right">مركز الدفع</td>
+               <td   >
+
+            </td>
+            <td  style="width: 30%;font-weight: bold;text-align: right">مركز الدفع</td>
           </tr>
           <tr >
+            <td style=";text-align: left;font-weight: bold"></td>
             <td ></td>
-            <td ></td>
+            <td style="width: 30%;font-weight: bold;text-align: right"></td>
           </tr>
         </tbody></table>
       </td>
@@ -50,7 +57,7 @@ margin: 0 auto;
         <table  style="direction: ltr;width: 100%"><tbody ><tr >
           <td  nowrap="">Nom et Prénom:</td>
           <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
-
+<span class="valueCls" t-field="o.company_id.gerant"/>
 
           </td>
           <td  style="text-align: right;direction: rtl" nowrap="">
@@ -62,7 +69,7 @@ margin: 0 auto;
             <td  style="width: 25%;padding-left: 20px">ou</td>
             <td >n°de l'adhérent</td>
             <td  style="border: solid 1px;width: 25%;text-align: center">
-
+<span class="valueCls" t-field="o.company_id.numSS"/>
             </td>
             <td  style="padding-left: 20px">رقم المنخرط</td>
             <td  style="width: 25%;text-align: right;padding-right: 20px">أو</td>
@@ -72,7 +79,7 @@ margin: 0 auto;
           <tbody ><tr >
             <td  nowrap="">Raison social:</td>
             <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
-
+<span class="valueCls" t-field="o.company_id.raison"/>
 
             </td>
             <td  style="text-align: right;direction: rtl" nowrap="">
@@ -82,7 +89,7 @@ margin: 0 auto;
           <tr >
             <td  nowrap="">Adresse:</td>
             <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
-
+<span class="valueCls" t-field="o.company_id.street"/>
 
             </td>
             <td  style="text-align: right;direction: rtl" nowrap="">
@@ -110,7 +117,7 @@ margin: 0 auto;
         <table  style="direction: ltr;width: 100%"><tbody ><tr >
           <td  nowrap="">Nom :</td>
           <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
-
+<span class="valueCls" t-field="o.employee_id.name"/>
 
           </td>
           <td  style="text-align: right;direction: rtl" nowrap="">اللقب :</td>
@@ -120,7 +127,7 @@ margin: 0 auto;
 
             <td  style="width: 40%;text-align: right;padding-right: 20px">n°de l'immatriculation</td>
             <td  style="border: solid 1px;">
-
+<span class="valueCls" t-field="o.employee_id.numSS"/>
 
             </td>
             <td  style="padding-left: 20px;width: 40%;text-align: left">رقم التسجيل</td>
@@ -131,7 +138,7 @@ margin: 0 auto;
           <td  nowrap="">Prénom :</td>
 <td  style="width: 100%;border-bottom:dotted 1px #bcbcbc ">
 
-
+<span class="valueCls" t-field="o.employee_id.prenom"/>
 </td>
           <td  style="text-align: right;direction: rtl" nowrap="">الإسم:</td>
         </tr></tbody></table>
@@ -140,12 +147,12 @@ margin: 0 auto;
             <td ><span >Né(e) le:</span>
             </td>
             <td >
-
+<span class="valueCls" t-field="o.employee_id.birthday"/>
             </td>
             <td >à</td>
 
             <td  style="width: 35%;border-bottom:dotted 1px #bcbcbc ">
-
+<span class="valueCls" t-field="o.employee_id.place_of_birth"/>
             </td>
             <td ><span >بـ</span></td>
             <td ></td>
@@ -901,6 +908,7 @@ margin: 0 auto;
 
 
                     <style>
+                        #valueCls{font-weight:550;font-size:14pt}
                         #ats_page1{font-family: "Times New Roman";width: 100%}
 .piece{width: 96%;margin: 0 auto;}
 .piece table{width: 100%;position: relative;top: -1px;}

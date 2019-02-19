@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <form string="Fees Details">
              <header>
-                <button string="Compute ATS" name="compute_ats" type="object"  class="oe_highlight"/>
+                <button string="Compute ATS" name="compute_ats" type="object" states="draft,done"  class="oe_highlight"/>
                 <button string="Print Page 1" name="print_page1"  type="object"  states="done"/>
                 <button string="Print Page 2" name="print_page2"  type="object"  states="done"/>
                 <field name="state" widget="statusbar" />
@@ -14,10 +14,7 @@
                 <group>
                     <field name="employee_id"/>
                     <field name="date_start"/>
-                    <field name="months_nbr"/>
-                    <field name="fait_a"/>
-                    <field name="fait_le"/>
-
+                    <field name="date_end"/>
 
                     <field name="lines_ids">
                        <tree>
