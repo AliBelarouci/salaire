@@ -26,6 +26,8 @@
              ref('hr_rule_zone'),
              ref('hr_rule_taxable'),
              ref('hr_rule_rss'),
+             ref('hr_rule_irg_brut'),
+             ref('hr_rule_irg_abat'),
              ref('hr_rule_irg'),
              ref('hr_rule_total_ret'),
              ref('hr_rule_net'),

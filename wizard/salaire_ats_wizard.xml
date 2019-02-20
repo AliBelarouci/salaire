@@ -14,7 +14,8 @@
                 <group>
                     <field name="employee_id"/>
                     <field name="date_start"/>
-                    <field name="date_end"/>
+                    <field name="months_nbr"/>
+                    <!--<field name="date_end"/>-->
 
                     <field name="lines_ids">
                        <tree>
