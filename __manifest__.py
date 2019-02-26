@@ -45,6 +45,7 @@
          'wizard/salaire_ats_wizard.xml',
          'report/ats_page1_report_view.xml',
          'report/ats_page2_report_view.xml',
+         'report/attestation.xml',
          'report/report_payslip.xml',
          'report/report_menu.xml',
          'views/hr_contract_views.xml',

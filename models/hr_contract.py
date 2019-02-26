@@ -49,6 +49,12 @@ class HrContract(models.Model):
 
             Contract = super(HrContract, self).create(vals)
             return Contract
+
+    def print_attestation(self):
+        report = self.env.ref(
+            'salaire.action_report_attestation')
+        return report.report_action(self)
+
     # @api.multi
     # @api.onchange('date_start')
     # def _onchange_date_start(self):

@@ -24,4 +24,12 @@
             file="salaire.report_ats_page2"
             paperformat="salaire.ATS_PAGE2_FORMAT_ID"
             menu="False"/>
+    <report id="action_report_attestation"
+            model="hr.contract"
+            string="ATTESTATION DE TRAVAIL"
+            report_type="qweb-html"
+            name="salaire.attestation"
+            file="salaire.attestation"
+            paperformat="salaire.A4_PAPER_FORMAT_ID"
+            menu="False"/>
 </odoo>
