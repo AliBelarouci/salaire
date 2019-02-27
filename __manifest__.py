@@ -43,9 +43,12 @@
          'security/rules.xml',
          'security/ir.model.access.csv',
 
+
          'wizard/menu.xml',
          'wizard/salaire_ats_wizard.xml',
          'wizard/divers/attestation/views.xml',
+         'wizard/CNAS/EMS.xml',
+
 
          'report/ats_page1_report_view.xml',
          'report/ats_page2_report_view.xml',
