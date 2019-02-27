@@ -15,8 +15,7 @@ class ATSWizard(models.TransientModel):
     company_id = fields.Many2one('res.company', string='Company', required=True,
                                  default=lambda self: self.env['res.users']._get_company())
 
-    date_end = fields.Date(string='Date End',  required=True,
-                             )
+
     months_nbr = fields.Integer('Months Number')
     payslip_ids = fields.Many2many('hr.payslip', 'hr_payslip_group_rel', 'payslip_id', 'employee_id', 'Payslips')
     fait_a = fields.Date("Fait à", default=lambda self: fields.Date.to_string(date.today()))

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="salaire.attestation">
+        <t t-call="web.html_container">
+
+<t t-foreach="docs" t-as="o">
+
+                <div class="font">
+                    <div class="page">
+                        <div style="text-align:center;margin-bottom: 100px;;margin-top: 100px">
+                            <h2>ATTESTATION DE TRAVAIL</h2>
+                        </div>
+                     <div style="width:75%;margin:0 auto;font-size: 16pt;line-height: 30pt;">
+                         <p>  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                             Je/Nous soussigné (es) <span style="font-weight: bold;" t-field="o.company_id.gerant"/> Gérant de la société <span style="font-weight: bold;" t-field="o.company_id.name"/>,
+atteste/attestons par la présente que Mr <span style="font-weight: bold;" t-field="o.employee_id.name"/> titulaire de la CNAS
+N° <span style="font-weight: bold;" t-field="o.employee_id.numSS"/>
+                             <span t-if="o.state=='close'">
+                                , a été salarié (e) au sein de notre société du <span style="font-weight: bold;" t-field="o.date_start"/> au
+<span style="font-weight: bold;" t-field="o.date_end"/>
+                             </span>
+ <span  t-if="o.state!='close'">
+      est salarié au sein de la société du
+     <span style="font-weight: bold;" t-field="o.date_start"/>
+     à ce jour.
+ </span>
+
+                         </p>
+
+                         <div style="margin-top:150px;margin-bottom:150px">
+                            <div></div> Fait a :
+                             <span style="font-weight: bold;" t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                        <div>
+                          Gerant:  <span style="font-weight: bold;" t-field="o.company_id.gerant"/>
+                        </div>
+                         </div>
+                     </div>
+
+                    </div>
+                </div>
+</t>
+        </t>
+    </template>
+</odoo>
