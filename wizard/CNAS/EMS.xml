@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+<record id="salaire.EMS_form" model="ir.ui.view">
+    <field name="name">EMS.form</field>
+    <field name="model">salaire.ems.report.wizard</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <header>
+ <button string="Charge" name="charge_employees" type="object"  class="oe_highlight"/>
+ <button string="Print" name="Print" type="object"  class="oe_highlight"  states="done"/>
+            </header>
+            <sheet string="">
+                <group>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="employee_ids">
+                       <tree editable="top">
+                           <field name="numss"/>
+                           <field name="np"/>
+                           <field name="birthday"/>
+                           <field name="date_E_S"/>
+                           <field name="E_S"/>
+                           <field name="obs"/>
+                       </tree>
+                    </field>
+                </group>
+            </sheet>
+
+        </form>
+    </field>
+</record>
+
+
+
+
+<record id="salaire_EMS_action" model="ir.actions.act_window">
+    <field name="name">EMS.action</field>
+    <field name="res_model">salaire.ems.report.wizard</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+     <field name="view_id" ref="salaire.EMS_form"/>
+        <field name="context">{}</field>
+</record>
+
+
+<menuitem id="salaire.EMS_action"
+              name="ETAT DES MOUVEMENTS DES SALARIES"
+              action="salaire_EMS_action"
+              parent="salaire.menu_hr_payroll_CNAS"
+              sequence="10"/>
+  </data>
+</odoo>
