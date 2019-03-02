@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record id="salaire_DAC_form" model="ir.ui.view">
+            <field name="name">.form</field>
+            <field name="model">salaire.dac.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        
+                    </header>
+                    <sheet string="">
+                        <field name="dec_cnas"/>
+                    </sheet>
+                    
+                </form>
+            </field>
+        </record>
+<record id="salaire_DAC_action" model="ir.actions.act_window">
+    <field name="name">salaire_DAC_action</field>
+    <field name="res_model">salaire.dac.report.wizard</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+     
+</record>
+
+        <menuitem id="salaire.EMS_action"
+              name="DÉCLARATION DE COTISATIONS"
+              action="salaire_DAC_action"
+              parent="salaire.menu_hr_payroll_CNAS"
+              sequence="10"/>
+    </data>
+</odoo>
