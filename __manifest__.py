@@ -44,10 +44,11 @@
          'security/ir.model.access.csv',
 
 
-         'wizard/menu.xml',
+'wizard/menu.xml',
          'wizard/salaire_ats_wizard.xml',
          'wizard/divers/attestation/views.xml',
          'wizard/CNAS/EMS.xml',
+         'wizard/CNAS/DAC/DAC.xml',
 
 
          'report/ats_page1_report_view.xml',

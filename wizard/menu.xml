@@ -1,15 +1,10 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <menuitem id="salaire_DIVERS"
               name="DIVERS"
               parent="hr_payroll.menu_hr_payroll_root"
               sequence="10"/>
-    <menuitem id="salaire_ats_rapport"
-              name="ATS"
-              action="salaire_ats_rapport_wizard_act"
-              parent="salaire_DIVERS"
-              sequence="10"/>
+
     <!--groups="hr_payroll.group_hr_payroll_manager"-->
 <menuitem id="salaire.menu_hr_payroll_CNAS" name="CNAS"  parent="hr_payroll.menu_hr_payroll_root"
         sequence="100" />

@@ -9,7 +9,12 @@
                         
                     </header>
                     <sheet string="">
-                        <field name="dec_cnas"/>
+                        <group>
+                        <field name="period"/>
+                        <field name="select_period"/>
+                        <field name="year_fiscal"/>
+                        </group>
+
                     </sheet>
                     
                 </form>
@@ -23,10 +28,10 @@
      
 </record>
 
-        <menuitem id="salaire.EMS_action"
+        <menuitem id="salaire.DAC_action"
               name="DÉCLARATION DE COTISATIONS"
               action="salaire_DAC_action"
               parent="salaire.menu_hr_payroll_CNAS"
-              sequence="10"/>
+              sequence="5"/>
     </data>
 </odoo>

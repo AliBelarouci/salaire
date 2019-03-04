@@ -44,6 +44,6 @@ class HrEmployee(models.Model):
         if type==2:
             clause_final = clause_final + draft
 
-        clause_final = clause_final+[ '|','|'] + clause_1 + clause_2 + clause_3
+        clause_final = clause_final+[ '|'] + clause_1 + clause_2
 
         return self.env['hr.contract'].search(clause_final).ids

@@ -17,6 +17,10 @@ class ATSWizard(models.TransientModel):
 
 
     months_nbr = fields.Integer('Months Number')
+
+
+
+
     payslip_ids = fields.Many2many('hr.payslip', 'hr_payslip_group_rel', 'payslip_id', 'employee_id', 'Payslips')
     fait_a = fields.Date("Fait à", default=lambda self: fields.Date.to_string(date.today()))
     fait_le = fields.Char("Fait le", default=lambda self:self.env.user.company_id.name)
@@ -29,6 +33,7 @@ class ATSWizard(models.TransientModel):
 
     ], string='Status',
         track_visibility='onchange', help='Status of the ATS', default='draft')
+
 
     @api.onchange('date_from')
     def onchange_date(self):
@@ -67,6 +72,7 @@ class ATSWizard(models.TransientModel):
         del months[-1]
         clause_1 = ['&', ('date_from', '>=', self.date_start),   ('date_from', '<=',  date_end)]
         clause_final = [('employee_id', '=', self.employee_id.id), '&', ('state', '=', 'done')] + clause_1
+
         payslip_ids = self.env['hr.payslip'].search(clause_final).read()
         result_dict = {}
         for payslip in payslip_ids:

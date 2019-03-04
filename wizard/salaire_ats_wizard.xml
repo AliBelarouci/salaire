@@ -40,5 +40,9 @@
         <field name="context">{}</field>
         <!--<field name="target">new</field>-->
     </record>
-
+ <menuitem id="salaire_ats_rapport"
+              name="ATS"
+              action="salaire_ats_rapport_wizard_act"
+              parent="salaire_DIVERS"
+              sequence="10"/>
 </odoo>

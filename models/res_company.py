@@ -20,13 +20,15 @@ class ResCompny(models.Model):
         ('ctr30', 'Ouargla'),
     ], string='Centre', default='ctr39')
     dec_cnas = fields.Selection([
+        ('mens', 'Mensuelle'),
         ('tri', 'Trimestrielle'),
 
     ], string='Declaration Cnas', default='tri')
     dec_g29 = fields.Selection([
         ('tri', 'Trimestrielle'),
     ], string='Declaration G29', default='tri')
-
+    def print_method(self):
+        print(self)
     def Active_company(self):
         for c in self:
             id=c.read()[0]['id']
