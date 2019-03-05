@@ -13,6 +13,8 @@
                         <field name="period"/>
                         <field name="select_period"/>
                         <field name="year_fiscal"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
                         </group>
 
                     </sheet>
