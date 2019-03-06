@@ -6,7 +6,7 @@
             <field name="arch" type="xml">
                 <form string="">
                     <header>
-                        
+                        <button string="Compute ASSIETTE" name="getASSIETTE" type="object" states="draft,done"  class="oe_highlight"/>
                     </header>
                     <sheet string="">
                         <group>
@@ -15,6 +15,8 @@
                         <field name="year_fiscal"/>
                         <field name="date_start"/>
                         <field name="date_end"/>
+                        <field name="ASSIETTE"/>
+                        <field name="detail_ids"/>
                         </group>
 
                     </sheet>

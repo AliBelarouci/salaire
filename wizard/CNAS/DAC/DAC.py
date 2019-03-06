@@ -8,10 +8,10 @@ class DACWizard(models.TransientModel):
     _name = "salaire.dac.report.wizard"
     _description = "Wizard For DAC Report"
     # period = fields.Char(string="Périod", required=True, )
-    date_start = fields.Date(string ='Date Start', required=True,)
-    date_end = fields.Date(string   ='Date End', required=True,)
-
-
+    date_start = fields.Date(string ='Date Start', required=True,readonly=True)
+    date_end = fields.Date(string   ='Date End', required=True,readonly=True)
+    ASSIETTE = fields.Float(string="ASSIETTE",  readonly=True )
+    detail_ids = fields.One2many(comodel_name="salaire.dac.report.wizard.detail", inverse_name='dac_id')
     # default=lambda self: fields.Date.to_string(date.today().replace(day=1))
     def _compute_selection(self):
         active_model = self._name
@@ -67,14 +67,52 @@ class DACWizard(models.TransientModel):
                 date_end = date_start + relativedelta(months=+3, day=1, days=-1)
                 self.date_start = date_start
                 self.date_end = date_end
+            # self.ASSIETTE =self.getASSIETTE()
+
 
     select_period = fields.Char(string="Period Selectionne", compute="_period_s")
     year_fiscal = fields.Integer(string="Year Fiscal", default=lambda self: self._get_yearFiscal())
+    state = fields.Selection([
+        ('draft', 'New'),
+        ('done', 'Done'),
+        ('error', 'Error'),
+
+    ], string='Status',
+        track_visibility='onchange', help='Status of the ATS', default='draft')
 
     def _get_yearFiscal(self):
         return self.env['year_fisc'].getActive()
         #
-    @api.depends('period')
-    def _period_s(self):
-        self.select_period = self.period
+    def getASSIETTE(self):
+        clause_1 = ['&', ('date_from', '>=', self.date_start), ('date_from', '<=', self.date_end)]
+        clause_final = [('state', '=', 'done')] + clause_1
+
+        payslip_ids = self.env['hr.payslip'].search(clause_final).read()
+        TotG = 0
+        result_dict = {}
+        for payslip in payslip_ids:
+            clause_1 = [('code', '=', 'GROSS')]
+            _clause1 = [('slip_id', '=', payslip['id']), ('code', '=', 'GROSS')]
+            _clause2 = [('slip_id', '=', payslip['id']), ('code', '=', 'RSS')]
+            sorted_rules1 = self.env['hr.payslip.line'].browse(payslip['line_ids']).search(_clause1).read()
+            TotG =TotG+ sorted_rules1[0]['amount']
+            result_dict[payslip['id']] = {
+                'py_name': payslip['name'],
+                # 'empolyee_id': payslip['employee_id'],
+                'TotG': sorted_rules1[0]['amount'],
+            }
+        lines = [(0, 0, line) for line in list(result_dict.values())]
+        for ats in self:
+            ats.detail_ids.unlink()
+            ats.write({'detail_ids': lines})
+
+        self.ASSIETTE = TotG
+        return TotG
+class DAC_detail(models.TransientModel):
+    _name = 'salaire.dac.report.wizard.detail'
+    py_name = fields.Char(string="Ref", required=False, )
+    empolyee_id = fields.Many2one(comodel_name="hr.employee", string="Employee", required=False, )
+    TotG  = fields.Integer(string="Totale Gain", required=False, )
+    dac_id = fields.Many2one(comodel_name='salaire.dac.report.wizard', string='DAC', ondelete="cascade")
+
 
