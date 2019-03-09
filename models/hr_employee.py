@@ -44,6 +44,31 @@ class HrEmployee(models.Model):
         if type==2:
             clause_final = clause_final + draft
 
-        clause_final = clause_final+[ '|'] + clause_1 + clause_2
+        clause_final = clause_final+['|', '|'] + clause_1 + clause_2+clause_3
 
+        return self.env['hr.contract'].search(clause_final).ids
+
+    @api.model
+    def get_contract2(self, employee, date_from, date_to, type=0):
+        """
+        @param employee: recordset of employee
+        @param date_from: date field
+        @param date_to: date field
+        @param type: 0 for new contract 1 for end contract 2 for valid contract
+        @return: returns the ids of all the contracts for the given employee that need to be considered for the given dates
+        """
+        # a contract is valid if it ends between the given dates
+        clause_0 = ['&', ('date_end', '<=', date_to), ('date_end', '>=', date_from)]
+        # OR if it starts between the given dates
+        clause_1 = ['&', ('date_start', '<=', date_to), ('date_start', '>=', date_from)]
+        # OR if it starts before the date_from and finish after the date_end (or never finish)
+        clause_2 = ['&', ('date_start', '<=', date_from), '|', ('date_end', '=', False), ('date_end', '>=', date_to)]
+
+        clause_final = [('employee_id', '=', employee.id)]
+        if type == 0:
+            clause_final = clause_final + clause_0
+        if type == 1:
+            clause_final = clause_final + clause_1
+        if type == 2:
+            clause_final = clause_final + clause_2
         return self.env['hr.contract'].search(clause_final).ids

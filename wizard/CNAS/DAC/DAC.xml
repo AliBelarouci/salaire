@@ -6,17 +6,33 @@
             <field name="arch" type="xml">
                 <form string="">
                     <header>
-                        <button string="Compute ASSIETTE" name="getASSIETTE" type="object" states="draft,done"  class="oe_highlight"/>
+                        <!--states="draft,done"-->
+                        <button string="Compute ASSIETTE" name="getASSIETTE" type="object"   class="oe_highlight"/>
                     </header>
                     <sheet string="">
                         <group>
                         <field name="period"/>
-                        <field name="select_period"/>
                         <field name="year_fiscal"/>
                         <field name="date_start"/>
                         <field name="date_end"/>
                         <field name="ASSIETTE"/>
-                        <field name="detail_ids"/>
+                        <field name="detail_ids">
+                          <tree>
+                              <field name="py_name"/>
+                              <field name="empolyee_id"/>
+                              <field name="TotG"/>
+                          </tree>
+                        </field>
+                            <field name="mouvement_ids">
+                          <tree>
+
+                              <field name="empolyee_id"/>
+                              <field name="name"/>
+                              <field name="date_start"/>
+                              <field name="date_end"/>
+                              <field name="mouvement"/>
+                          </tree>
+                        </field>
                         </group>
 
                     </sheet>
